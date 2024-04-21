@@ -1,13 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>flaviosite</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>flaviosite</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  h1, h2 {
+    color: #333;
+  }
+
+  p {
+    color: #666;
+  }
+
+  button {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  .poll-results {
+    margin-top: 20px;
+  }
+</style>
 </head>
 <body>
+  <div class="container">
     <h1>CON CSS DEL BOTTI</h1>
     <p>ciò thief simulator a gratise(filippo pippa il dash)</p>
     <a href="https://mega.nz/file/uQt1lSoD#ettrpg7QFBGq0lTCQImw0fwUv-AHOA-bN3OGcynJmhc" download="your-file-name.zip">Download thief simulator</a>
+
+    <div class="poll-container">
+      <h2>vota!!!</h2>
+      <div id="pollContainer">
+        <h3>Quale preferisci?</h3>
+        <button onclick="vote('blue')">Mangiare</button>
+        <button onclick="vote('red')">Dormire</button>
+      </div>
+      <div class="poll-results" id="pollResults"></div>
+    </div>
+  </div>
+
+<script>
+// Check if votes are already stored in localStorage and initialize them
+let blueVotes = parseInt(localStorage.getItem('blueVotes')) || 0;
+let redVotes = parseInt(localStorage.getItem('redVotes')) || 0;
+
+function vote(color) {
+  if (color === 'blue') {
+    blueVotes++;
+  } else if (color === 'red') {
+    redVotes++;
+  }
+  // Update votes in localStorage
+  localStorage.setItem('blueVotes', blueVotes);
+  localStorage.setItem('redVotes', redVotes);
+  displayResults();
+}
+
+function displayResults() {
+  const totalVotes = blueVotes + redVotes;
+  const bluePercentage = totalVotes === 0 ? 0 : (blueVotes / totalVotes) * 100;
+  const redPercentage = totalVotes === 0 ? 0 : (redVotes / totalVotes) * 100;
+
+  document.getElementById("pollResults").innerHTML = `
+    <h2>Risultati:</h2>
+    <p>Mangiare: ${blueVotes} voti (${bluePercentage.toFixed(1)}%)</p>
+    <p>Dormire: ${redVotes} voti (${redPercentage.toFixed(1)}%)</p>
+  `;
+}
+</script>
+
 </body>
 </html>
