@@ -1,105 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>flaviosite</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .container {
-    max-width: 600px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-
-  h1, h2 {
-    color: #333;
-  }
-
-  p {
-    color: #666;
-  }
-
-  button {
-    padding: 12px 24px;
-    margin: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #45a049;
-  }
-
-  .poll-results {
-    margin-top: 20px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy premium Antivirus or VoIP services at unbeatable prices. Secure your devices and communication.">
+    <meta name="keywords" content="Antivirus, VoIP, Secure Communication, Internet Security, VoIP Services">
+    <meta name="author" content="Your Company Name">
+    <title>Your Company - Antivirus & VoIP Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add CSS link for styles -->
 </head>
+
 <body>
-  <div class="container">
-    <h1>CON CSS DEL BOTTI</h1>
-    <p>ciò thief simulator a gratise(filippo pippa il dash)</p>
-    <a href="https://mega.nz/file/uQt1lSoD#ettrpg7QFBGq0lTCQImw0fwUv-AHOA-bN3OGcynJmhc" download="your-file-name.zip" target="_blank">Download thief simulator</a>
 
-    <div class="poll-container">
-      <h2>vota!!!</h2>
-      <div id="pollContainer">
-        <h3>Quale preferisci?</h3>
-        <button onclick="vote('blue')">Mangiare</button>
-        <button onclick="vote('red')">Dormire</button>
-      </div>
-      <div class="poll-results" id="pollResults"></div>
-    </div>
-  </div>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Your Company</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products & Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<script>
-// Check if votes are already stored in localStorage and initialize them
-let blueVotes = parseInt(localStorage.getItem('blueVotes')) || 0;
-let redVotes = parseInt(localStorage.getItem('redVotes')) || 0;
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Protect Your Devices and Secure Your Communication</h2>
+            <p>Get top-notch antivirus protection and reliable VoIP solutions at competitive prices.</p>
+            <a href="#products" class="cta-button">Shop Now</a>
+        </div>
+    </section>
 
-function vote(color) {
-  if (color === 'blue') {
-    blueVotes++;
-  } else if (color === 'red') {
-    redVotes++;
-  }
-  // Update votes in localStorage
-  localStorage.setItem('blueVotes', blueVotes);
-  localStorage.setItem('redVotes', redVotes);
-  displayResults();
-}
+    <!-- Products & Services Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2>Our Products & Services</h2>
+            <div class="product">
+                <h3>Antivirus Software</h3>
+                <p>Protect your devices from malware, viruses, and other cyber threats. Choose from our range of antivirus solutions.</p>
+                <a href="#" class="cta-button">Buy Now</a>
+            </div>
+            <div class="product">
+                <h3>VoIP Solutions</h3>
+                <p>Enhance your communication with crystal-clear voice over IP services. Ideal for businesses and personal use.</p>
+                <a href="#" class="cta-button">Buy Now</a>
+            </div>
+        </div>
+    </section>
 
-function displayResults() {
-  const totalVotes = blueVotes + redVotes;
-  const bluePercentage = totalVotes === 0 ? 0 : (blueVotes / totalVotes) * 100;
-  const redPercentage = totalVotes === 0 ? 0 : (redVotes / totalVotes) * 100;
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are a trusted provider of cybersecurity and communication solutions. Our mission is to protect your digital life and enhance your communication experience.</p>
+            <p>With years of experience, we offer reliable, secure, and affordable antivirus and VoIP products.</p>
+        </div>
+    </section>
 
-  document.getElementById("pollResults").innerHTML = `
-    <h2>Risultati:</h2>
-    <p>Mangiare: ${blueVotes} voti (${bluePercentage.toFixed(1)}%)</p>
-    <p>Dormire: ${redVotes} voti (${redPercentage.toFixed(1)}%)</p>
-  `;
-}
-</script>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="/send-message" method="post">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
 
 </body>
+
 </html>
